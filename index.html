@@ -1,16 +1,26 @@
 <!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Titre de la page</title>
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
-    <body>
-        <textarea name="" id="message" cols="50" rows="5" value=""></textarea>
-        <!-- Fonction remplacer sur bouton -->
-        <button id="moderer" value="moderer" onclick="replaceEmoticons(this)">Modérer</button>
-        <p>Résultat</p>
-        <textarea name="" id="resultat" cols="30" rows="10"></textarea>
-    </body>
-    <script src="./js/script.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <title>Moderateur</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="jquery-3.1.1.js"></script>
+</head>
+
+<body>
+    <textarea rows="7" cols="70" id="text"></textarea>
+    <input type="button" value="Modérateur" id="btn">
+
+    <textarea id="result" rows="7" cols="70" id="text"></textarea>
+</body>
+<script>
+    $(document).ready(function() {
+        $("#btn").on("click", function() {
+            var text = $("#text").val().replace(/:D|:O|:x|:i|\(/g, "--");
+            $("#result").html(text);
+        });
+    });
+</script>
+
 </html>
